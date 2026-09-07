@@ -1,0 +1,547 @@
+{
+    "name": "Pre-Entrega 7 - 2. Publicacion (Filtro Aprobado)",
+    "flow": [
+        {
+            "id": 2,
+            "module": "airtable:ActionSearchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 10825262
+            },
+            "mapper": {
+                "base": "appSN0Dz6g3fzaUDE",
+                "table": "tbljtYAs03BehMCpC",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "Centro de Comando - Contenido"
+                        },
+                        "sort": {
+                            "mode": "chose"
+                        },
+                        "view": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Piezas de Contenido"
+                        },
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "maxRecords": {
+                            "empty": true
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            },
+                            "label": "Conexión Airtable OAuth de Lisandro (ID de usuario: usrUY0TbkezHJtbNq)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "sort",
+                        "spec": [
+                            {
+                                "name": "field",
+                                "type": "select",
+                                "label": "Field",
+                                "dynamic": true,
+                                "options": []
+                            },
+                            {
+                                "name": "direction",
+                                "type": "select",
+                                "label": "Direction",
+                                "options": [
+                                    {
+                                        "label": "Descending",
+                                        "value": "desc"
+                                    },
+                                    {
+                                        "label": "Ascending",
+                                        "value": "asc"
+                                    }
+                                ]
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Sort"
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Output Fields",
+                        "multiple": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__IMTLENGTH__",
+                        "type": "uinteger",
+                        "label": "Total number of bundles"
+                    },
+                    {
+                        "name": "__IMTINDEX__",
+                        "type": "uinteger",
+                        "label": "Bundle order position"
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Borrador Generado",
+                        "type": "text",
+                        "label": "Borrador Generado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Fecha Ultima Ejecucion",
+                        "time": true,
+                        "type": "date",
+                        "label": "Fecha Ultima Ejecucion"
+                    },
+                    {
+                        "name": "Plataforma",
+                        "type": "text",
+                        "label": "Plataforma"
+                    },
+                    {
+                        "name": "Redactor",
+                        "type": "text",
+                        "label": "Redactor"
+                    },
+                    {
+                        "name": "Editor Asignado",
+                        "type": "text",
+                        "label": "Editor Asignado"
+                    },
+                    {
+                        "name": "Fecha de Publicacion",
+                        "time": true,
+                        "type": "date",
+                        "label": "Fecha de Publicacion"
+                    },
+                    {
+                        "name": "Notas de Revision",
+                        "type": "text",
+                        "label": "Notas de Revision",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Prioridad",
+                        "type": "text",
+                        "label": "Prioridad"
+                    },
+                    {
+                        "name": "Tipo de Contenido",
+                        "type": "text",
+                        "label": "Tipo de Contenido"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "airtable:ActionUpdateRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 10825262
+            },
+            "mapper": {
+                "id": "{{2.id}}",
+                "base": "appSN0Dz6g3fzaUDE",
+                "table": "tbljtYAs03BehMCpC",
+                "record": {
+                    "fldQuurgQh5mDRwae": "{{now}}",
+                    "fldd4RKwgwtO9UpsH": "Publicado",
+                    "fldvXFagTI30mwBGq": "{{now}}"
+                },
+                "typecast": false,
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "label": "Centro de Comando - Contenido"
+                        },
+                        "table": {
+                            "label": "Piezas de Contenido"
+                        },
+                        "record": {
+                            "nested": {
+                                "fld4JsGEfwd8aIpDM": {
+                                    "mode": "edit"
+                                },
+                                "fld6NAeuvBbpFLyNO": {
+                                    "mode": "chose"
+                                },
+                                "fldd4RKwgwtO9UpsH": {
+                                    "mode": "chose",
+                                    "label": "Publicado"
+                                },
+                                "fldecpYNj2JF7CMBk": {
+                                    "mode": "edit"
+                                },
+                                "fldjVkHdgz7OJpi5X": {
+                                    "mode": "edit"
+                                }
+                            }
+                        },
+                        "typecast": {
+                            "mode": "chose"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            },
+                            "label": "Conexión Airtable OAuth de Lisandro (ID de usuario: usrUY0TbkezHJtbNq)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "typecast",
+                        "type": "boolean",
+                        "label": "Smart links",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    },
+                    {
+                        "name": "record",
+                        "spec": [
+                            {
+                                "name": "fldfpZq35AcQ0rLF7",
+                                "type": "text",
+                                "label": "Idea Semilla"
+                            },
+                            {
+                                "name": "fldB1eBKlMNT9N1ZB",
+                                "type": "text",
+                                "label": "Borrador Generado"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldd4RKwgwtO9UpsH",
+                                "type": "select",
+                                "label": "Estado"
+                            },
+                            {
+                                "name": "fld6NAeuvBbpFLyNO",
+                                "type": "boolean",
+                                "label": "Aprobado"
+                            },
+                            {
+                                "name": "fldQuurgQh5mDRwae",
+                                "time": true,
+                                "type": "date",
+                                "label": "Fecha Ultima Ejecucion"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldecpYNj2JF7CMBk",
+                                "type": "select",
+                                "label": "Plataforma"
+                            },
+                            {
+                                "name": "fldKEw2JykJfqQfnw",
+                                "type": "text",
+                                "label": "Redactor"
+                            },
+                            {
+                                "name": "fldqhxnHIhl607nOx",
+                                "type": "text",
+                                "label": "Editor Asignado"
+                            },
+                            {
+                                "name": "fldvXFagTI30mwBGq",
+                                "time": true,
+                                "type": "date",
+                                "label": "Fecha de Publicacion"
+                            },
+                            {
+                                "name": "fldh0ovZUfJcOZuC5",
+                                "type": "text",
+                                "label": "Notas de Revision"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fld4JsGEfwd8aIpDM",
+                                "type": "select",
+                                "label": "Prioridad"
+                            },
+                            {
+                                "mode": "edit",
+                                "name": "fldjVkHdgz7OJpi5X",
+                                "type": "select",
+                                "label": "Tipo de Contenido"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Record"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Idea Semilla",
+                        "type": "text",
+                        "label": "Idea Semilla",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Borrador Generado",
+                        "type": "text",
+                        "label": "Borrador Generado",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Estado",
+                        "type": "text",
+                        "label": "Estado"
+                    },
+                    {
+                        "name": "Aprobado",
+                        "type": "boolean",
+                        "label": "Aprobado"
+                    },
+                    {
+                        "name": "Fecha Ultima Ejecucion",
+                        "time": true,
+                        "type": "date",
+                        "label": "Fecha Ultima Ejecucion"
+                    },
+                    {
+                        "name": "Plataforma",
+                        "type": "text",
+                        "label": "Plataforma"
+                    },
+                    {
+                        "name": "Redactor",
+                        "type": "text",
+                        "label": "Redactor"
+                    },
+                    {
+                        "name": "Editor Asignado",
+                        "type": "text",
+                        "label": "Editor Asignado"
+                    },
+                    {
+                        "name": "Fecha de Publicacion",
+                        "time": true,
+                        "type": "date",
+                        "label": "Fecha de Publicacion"
+                    },
+                    {
+                        "name": "Notas de Revision",
+                        "type": "text",
+                        "label": "Notas de Revision",
+                        "multiline": true
+                    },
+                    {
+                        "name": "Prioridad",
+                        "type": "text",
+                        "label": "Prioridad"
+                    },
+                    {
+                        "name": "Tipo de Contenido",
+                        "type": "text",
+                        "label": "Tipo de Contenido"
+                    }
+                ]
+            },
+            "onerror": [
+                {
+                    "id": 4,
+                    "module": "builtin:Break",
+                    "version": 1,
+                    "parameters": {},
+                    "mapper": {
+                        "retry": false
+                    },
+                    "metadata": {
+                        "designer": {
+                            "x": 600,
+                            "y": 0,
+                            "messages": [
+                                {
+                                    "category": "badsettings",
+                                    "severity": "error",
+                                    "message": "This directive requires storing of incomplete executions to be enabled."
+                                }
+                            ]
+                        },
+                        "restore": {
+                            "expect": {
+                                "retry": {
+                                    "mode": "chose"
+                                }
+                            }
+                        },
+                        "expect": [
+                            {
+                                "name": "retry",
+                                "type": "boolean",
+                                "label": "Retry automatically",
+                                "required": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
